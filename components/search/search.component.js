@@ -22,20 +22,20 @@ angular.module('dashboardApp').component('search', {
                 <input type="text" 
                        ng-model="$ctrl.inputValue" 
                        ng-keydown="$ctrl.handleKeydown($event)"
-                       placeholder="{{$ctrl.tags.length === 0 ? 'Search...' : ''}}"
+                       placeholder="{{$ctrl.tags.length === 0 ? 'Search somthing' : ''}}"
                        class="flex-1 min-w-[60px] bg-transparent border-none text-sm text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-0 p-0 m-0">
             </div>
         </div>
     `,
-    controller: function() {
+    controller: function () {
         this.inputValue = '';
-        this.handleKeydown = function(event) {
+        this.handleKeydown = function (event) {
             if (event.key === 'Enter' && this.inputValue.trim()) {
                 event.preventDefault();
-                this.onAddTag({tag: this.inputValue.trim()});
+                this.onAddTag({ tag: this.inputValue.trim() });
                 this.inputValue = '';
             } else if (event.key === 'Backspace' && !this.inputValue && this.tags && this.tags.length > 0) {
-                this.onRemoveTag({tag: this.tags[this.tags.length - 1]});
+                this.onRemoveTag({ tag: this.tags[this.tags.length - 1] });
             }
         };
     }

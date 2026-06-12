@@ -5,6 +5,7 @@ angular.module('dashboardApp').component('viewToggle', {
     },
     template: `
         <div class="flex items-center gap-0.5">
+        <!-- IMMAN -->
             <button type="button" 
                     ng-click="$ctrl.onChange({view: 'card'})"
                     ng-class="$ctrl.currentView === 'card' ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"

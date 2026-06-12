@@ -5,6 +5,7 @@ angular.module('dashboardApp').component('statusFilters', {
     },
     template: `
         <div class="flex items-center gap-0.5">
+        <!-- KAMAL -->
             <button type="button" 
                     ng-click="$ctrl.toggle('active')"
                     ng-class="$ctrl.localModel.active ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
@@ -25,22 +26,22 @@ angular.module('dashboardApp').component('statusFilters', {
             </button>
         </div>
     `,
-    controller: function() {
-        this.$onInit = function() {
+    controller: function () {
+        this.$onInit = function () {
             this.localModel = angular.copy(this.model) || {
                 active: false,
                 inactive: false,
                 notExpired: false
             };
         };
-        this.$onChanges = function(changes) {
+        this.$onChanges = function (changes) {
             if (changes.model && !changes.model.isFirstChange()) {
                 this.localModel = angular.copy(this.model);
             }
         };
-        this.toggle = function(key) {
+        this.toggle = function (key) {
             this.localModel[key] = !this.localModel[key];
-            this.onChange({statuses: this.localModel});
+            this.onChange({ statuses: this.localModel });
         };
     }
 });

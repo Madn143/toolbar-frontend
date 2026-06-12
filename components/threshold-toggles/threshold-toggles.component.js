@@ -5,6 +5,7 @@ angular.module('dashboardApp').component('thresholdToggles', {
     },
     template: `
         <div class="flex items-center gap-0.5">
+        <!-- MADAN -->
             <button type="button" 
                     ng-click="$ctrl.toggle('under60')"
                     ng-class="$ctrl.localModel.under60 ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
@@ -28,22 +29,22 @@ angular.module('dashboardApp').component('thresholdToggles', {
             </button>
         </div>
     `,
-    controller: function() {
-        this.$onInit = function() {
+    controller: function () {
+        this.$onInit = function () {
             this.localModel = angular.copy(this.model) || {
                 under60: false,
                 between60And80: false,
                 over80: false
             };
         };
-        this.$onChanges = function(changes) {
+        this.$onChanges = function (changes) {
             if (changes.model && !changes.model.isFirstChange()) {
                 this.localModel = angular.copy(this.model);
             }
         };
-        this.toggle = function(key) {
+        this.toggle = function (key) {
             this.localModel[key] = !this.localModel[key];
-            this.onChange({thresholds: this.localModel});
+            this.onChange({ thresholds: this.localModel });
         };
     }
 });

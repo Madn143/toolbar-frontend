@@ -4,6 +4,7 @@ angular.module('dashboardApp').component('dateDropdown', {
         onChange: '&'
     },
     template: `
+    <!-- JOEL -->
         <div class="relative" ng-class="{'z-20': $ctrl.isOpen}">
             <button type="button" 
                     ng-click="$ctrl.toggle()"
@@ -29,20 +30,20 @@ angular.module('dashboardApp').component('dateDropdown', {
             <div ng-show="$ctrl.isOpen" ng-click="$ctrl.close()" class="fixed inset-0 z-20"></div>
         </div>
     `,
-    controller: function() {
+    controller: function () {
         this.options = ['YTD', '360 Days', '180 Days', '90 Days', '60 Days', '30 Days', '7 Days'];
         this.isOpen = false;
-        
-        this.toggle = function() {
+
+        this.toggle = function () {
             this.isOpen = !this.isOpen;
         };
-        
-        this.close = function() {
+
+        this.close = function () {
             this.isOpen = false;
         };
-        
-        this.selectOption = function(option) {
-            this.onChange({range: option});
+
+        this.selectOption = function (option) {
+            this.onChange({ range: option });
             this.isOpen = false;
         };
     }
