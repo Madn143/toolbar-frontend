@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboardApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibana Toolbar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-slate-800 font-sans p-8 min-h-screen">
+
+    <div class="w-full mt-10" ng-controller="MainController as $ctrl">
+        <div class="flex items-center w-full px-4 py-2 bg-[#f5f8fc] border border-gray-200 shadow-sm rounded-md">
+            
+            <view-toggle 
+                current-view="$ctrl.state.currentView" 
+                on-change="$ctrl.updateView(view)">
+            </view-toggle>
+            
+            <div class="border-r border-gray-300 h-5 mx-2"></div>
+            
+            <search 
+                tags="$ctrl.state.searchTags" 
+                on-add-tag="$ctrl.addSearchTag(tag)" 
+                on-remove-tag="$ctrl.removeSearchTag(tag)">
+            </search>
+            
+            <div class="border-r border-gray-300 h-5 mx-2"></div>
+            
+            <date-dropdown 
+                selected="$ctrl.state.dateRange" 
+                on-change="$ctrl.updateDateRange(range)">
+            </date-dropdown>
+            
+            <div class="border-r border-gray-300 h-5 mx-2"></div>
+            
+            <threshold-toggles 
+                model="$ctrl.state.thresholds" 
+                on-change="$ctrl.updateThresholds(thresholds)">
+            </threshold-toggles>
+            
+            <div class="border-r border-gray-300 h-5 mx-2"></div>
+            
+            <status-filters 
+                model="$ctrl.state.statuses" 
+                on-change="$ctrl.updateStatuses(statuses)">
+            </status-filters>
+            
+            <meta-info 
+                last-updated="$ctrl.state.meta.lastUpdated" 
+                rows-current="$ctrl.state.meta.rowsCurrent" 
+                rows-total="$ctrl.state.meta.rowsTotal">
+            </meta-info>
+            
+        </div>
+    </div>
+
+    <!-- App Module -->
+    <script src="app.js"></script>
+
+    <!-- Components -->
+    <script src="components/view-toggle/view-toggle.component.js"></script>
+    <script src="components/search/search.component.js"></script>
+    <script src="components/date-dropdown/date-dropdown.component.js"></script>
+    <script src="components/threshold-toggles/threshold-toggles.component.js"></script>
+    <script src="components/status-filters/status-filters.component.js"></script>
+    <script src="components/meta-info/meta-info.component.js"></script>
+
+</body>
+
+</html>
