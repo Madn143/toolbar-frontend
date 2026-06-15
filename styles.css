@@ -66,7 +66,7 @@ body {
   font-size: var(--font-size-sm);
   font-weight: 500;
   line-height: 1.25rem;
-  background-color: var(--chip-bg);
+  background-color: transparent;
   color: var(--chip-text);
   border: 1px solid transparent;
   border-radius: 9999px; /* Pill shape */
