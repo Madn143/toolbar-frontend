@@ -4,25 +4,38 @@ angular.module('dashboardApp').component('statusFilters', {
         onChange: '&'
     },
     template: `
-        <div class="flex items-center gap-0.5">
-        <!-- KAMAL -->
+        <div class="d-flex align-items-center gap-2">
             <button type="button" 
                     ng-click="$ctrl.toggle('active')"
-                    ng-class="$ctrl.localModel.active ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
-                    class="px-2 py-1.5 rounded-md text-sm transition-colors focus:outline-none">
-                Active
+                    ng-class="{'active-primary': $ctrl.localModel.active}"
+                    class="btn-custom"
+                    title="Active">
+                <div class="status-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span>Active</span>
             </button>
+
             <button type="button" 
                     ng-click="$ctrl.toggle('inactive')"
-                    ng-class="$ctrl.localModel.inactive ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
-                    class="px-2 py-1.5 rounded-md text-sm transition-colors focus:outline-none">
-                Inactive
+                    ng-class="{'active-primary': $ctrl.localModel.inactive}"
+                    class="btn-custom"
+                    title="Inactive">
+                <div class="status-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span>Inactive</span>
             </button>
+
             <button type="button" 
                     ng-click="$ctrl.toggle('notExpired')"
-                    ng-class="$ctrl.localModel.notExpired ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
-                    class="px-2 py-1.5 rounded-md text-sm transition-colors focus:outline-none">
-                Not Expired
+                    ng-class="{'active-primary': $ctrl.localModel.notExpired}"
+                    class="btn-custom"
+                    title="Not Expired">
+                <div class="status-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span>Not Expired</span>
             </button>
         </div>
     `,

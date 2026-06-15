@@ -4,27 +4,37 @@ angular.module('dashboardApp').component('thresholdToggles', {
         onChange: '&'
     },
     template: `
-        <div class="flex items-center gap-0.5">
-        <!-- MADAN -->
+        <div class="d-flex align-items-center gap-2">
             <button type="button" 
                     ng-click="$ctrl.toggle('under60')"
-                    ng-class="$ctrl.localModel.under60 ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
-                    class="flex items-center gap-1.5 px-2 py-1.5 rounded-md text-sm transition-colors focus:outline-none">
-                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    ng-class="{'active-success': $ctrl.localModel.under60}"
+                    class="btn-custom"
+                    title="Under 60%">
+                <div class="status-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" /></svg>
+                </div>
                 <span>&lt; 60%</span>
             </button>
+
             <button type="button" 
                     ng-click="$ctrl.toggle('between60And80')"
-                    ng-class="$ctrl.localModel.between60And80 ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
-                    class="flex items-center gap-1.5 px-2 py-1.5 rounded-md text-sm transition-colors focus:outline-none">
-                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    ng-class="{'active-warning': $ctrl.localModel.between60And80}"
+                    class="btn-custom"
+                    title="60-80%">
+                <div class="status-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" /></svg>
+                </div>
                 <span>60-80%</span>
             </button>
+
             <button type="button" 
                     ng-click="$ctrl.toggle('over80')"
-                    ng-class="$ctrl.localModel.over80 ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-200'"
-                    class="flex items-center gap-1.5 px-2 py-1.5 rounded-md text-sm transition-colors focus:outline-none">
-                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    ng-class="{'active-danger': $ctrl.localModel.over80}"
+                    class="btn-custom"
+                    title="Over 80%">
+                <div class="status-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" /></svg>
+                </div>
                 <span>&gt; 80%</span>
             </button>
         </div>
